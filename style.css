@@ -1,0 +1,29 @@
+    header {
+        background-color: blue;
+    
+    }
+    
+    #name {
+        color: white;
+        padding-left: 10%;
+    }
+    
+    #headerInput{
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+
+
+  #centered {
+    text-align: center;
+   }
+
+   #input {
+    display: block;
+    margin: 0 auto;
+    }
+
+
+

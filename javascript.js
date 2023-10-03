@@ -45,7 +45,8 @@ function newContact(event){
     //create button functionality for delete button
     const deleteButtonEntry = createRow.insertCell(4);
     const deleteButton = document.createElement("button");
-
+    deleteButton.classList.add("btn");
+    deleteButton.classList.add("btn-secondary");
     deleteButton.textContent ="Delete";
     const deleteFun= function(){
         createRow.remove();

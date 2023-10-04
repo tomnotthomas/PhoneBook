@@ -11,32 +11,22 @@
         <script src="javascript.js"></script>
     </head>
     <body>
-        <script>
-            <!-------taken from https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_filters_table -->
-            $(document).ready(function(){
-            $("#searchBar").on("keyup", function() {
-                const searchTerm = $(this).val().toLowerCase();
-                $("#tableContent tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(searchTerm) > -1)
-                })
-            });
-        });
-        </script>
         <header>
-                <h1 id="name">PhoneBook</h1>
+                <h1>PhoneBook</h1>
         </header>
-            <container id="centered" >
-                <section id="information">
+            <container id="phoneBookInfo" >
+                <section>
                     <br><br>
                     <h2>Welcome to PhoneBook</h2>
-                    <p>type in your contact details to be listed in our phonebook</p>
+                    <p>Interested in getting called by sales agents and scammers?</p>
+                    <p>Then type in your personal contact information right here, right now! </p>
                 </section>            
                 <!---Modal Bootstrap design taken from: https://getbootstrap.com/docs/5.3/examples/modals/-->
                 <div class="modal modal-sheet position-relative p-4 py-md-5" tabindex="0" role="dialog" id="newContactForm">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content rounded-4 shadow">
                         <div class="modal-header p-5 pb-4 border-bottom-0">
-                        <h1 class="fw-bold mb-0 fs-2">Type in your contact details</h1>
+                        <h2 class="fw-bold mb-0 fs-2">Type in your contact details</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body p-5 pt-0">
@@ -47,14 +37,14 @@
                                 <input  placeholder = "Phone Number" class="form-control rounded-3" type= "number" id="phone" required><br><br>
                                 <input placeholder = "Address" class="form-control rounded-3" type="text" id="address" required><br><br>
                             </div>
-                            <button type="button" class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" onclick="newContact()">Register</button>
+                            <button type="button" class="firstButton" onclick="newContact()">Register</button>
                         </form>
                         </div>
                     </div>
                     </div>
                 </div>
                 <!------I've taken the table design from: https://getbootstrap.com/docs/5.3/content/tables/----->
-                <div class="table-container">
+                <div class="table">
                     <table class="table" id="phoneBookContact">                       
                             <thead>
                             <tr>
@@ -67,10 +57,7 @@
                                     <input  type ="text" id="searchBar"  placeholder="search..."> </input>
                                 </th>
                                 <th scope="col">
-                                <button data-bs-toggle="modal" data-bs-target="#newContactForm" id="toggleButton"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
-                                        <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
-                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
-                                    </svg>
+                                <button data-bs-toggle="modal" data-bs-target="#newContactForm" id="toggleButton"> Add</button>
                                 </th>
                             </tr>
                             </thead>

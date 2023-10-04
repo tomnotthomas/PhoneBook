@@ -51,7 +51,21 @@ function newContact(event){
     createRow.append($("<td>").text(""));
     createRow.append($("<td>").text(""));
 
-    
+
     //now I put the created entries into the table
     tableInside.append(createRow);
 }
+
+
+//Create search functionality
+
+
+//Search taken from https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_filters_table
+$(document).ready(function(){
+$("#searchBar").on("keyup", function() {
+    const searchTerm = $(this).val().toLowerCase();
+    $("#tableContent tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(searchTerm) > -1)
+    })
+});
+});

@@ -1,3 +1,4 @@
+//Create contact class 
 class Contact {
     constructor(name, surname, phone, address){
         this.name = name;
@@ -8,51 +9,49 @@ class Contact {
 
 }
 
+
+//Create function that is creating table entries
 function newContact(event){
-    //create an object from user input
-    const name = document.getElementById("firstName").value;
-    const surname = document.getElementById("surname").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
+    const name = $("#firstName").val();
+    const surname = $("#surname").val();
+    const phone = $("#phone").val();
+    const address = $("#address").val();
+
 
     //Validate all fields are filled with at least something
     if(name === "" || surname === "" || phone ==="" || address ==="") {
-        return error
+        return;
     }
 
+
+    //create an object from user input
     const contact = new Contact(name, surname, phone, address);    
 
-    //create the table entry
 
-    const tableInside= document.querySelector("#phoneBookContact tbody");
-    const createRow = tableInside.insertRow();
+    //create the table elements
+    const tableInside= $("#phoneBookContact tbody");
+    const createRow = $("<tr>");
     
 
-    const nameEntry = createRow.insertCell(0);
-    console.log("this should be the contact name" + contact.name)
-    nameEntry.textContent = contact.name;
+    createRow.append($("<td>").text(contact.name));
+    createRow.append($("<td>").text(contact.surname));
+    createRow.append($("<td>").text(contact.phone));
+    createRow.append($("<td>").text(contact.address));
 
-    const surnameEntry = createRow.insertCell(1);
-    surnameEntry.textContent = contact.surname;
 
-    const phoneEntry = createRow.insertCell(2);
-    phoneEntry.textContent = contact.phone;
-
-    const addressEntry = createRow.insertCell(3);
-    addressEntry.textContent = contact.address;
-
-  
-    //create button functionality for delete button
-    const deleteButtonEntry = createRow.insertCell(4);
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn");
-    deleteButton.classList.add("btn-secondary");
-    deleteButton.textContent ="Delete";
-    const deleteFun= function(){
+    //create delete button
+    const deleteButton = $("<button>").addClass("btn firstButton").text("Delete").click(function() {
         createRow.remove();
-    }
-    deleteButton.addEventListener("click", deleteFun)
+    })
+    const deleteButtonInTable= $("<td>").append(deleteButton);
+    createRow.append(deleteButtonInTable)
 
-    deleteButtonEntry.appendChild(deleteButton);
 
+    //add some empty rows to stretch table entries across full size
+    createRow.append($("<td>").text(""));
+    createRow.append($("<td>").text(""));
+
+    
+    //now I put the created entries into the table
+    tableInside.append(createRow);
 }

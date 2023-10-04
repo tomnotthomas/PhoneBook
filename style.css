@@ -1,47 +1,64 @@
-    
-    
-    
-    header {
-        background-color: blue;
-    
-    }
-    
-    #name {
-        color: white;
-        padding-left: 10%;
-    }
-    
-    #headerInput{
-        position: fixed;
-        top: 0;
-        right: 0;
 
-    }
+/* || Header and Main Navigation */
 
 
-  #centered {
+header {
+    background-color:brown;
+    border-color:silver;
+    border-style:dashed;
+}
+
+
+h1 {
+    font-family:monospace;
+    color: white;
+}
+
+
+/* || General styles */
+
+
+body{
+  background-color:antiquewhite;  
+    }
+
+
+#phoneBookInfo {
     text-align: center;
     width: 50%;
     padding: 20px;
    }
 
-   footer {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    width:100%;
-    padding: 10px;
-    background-color:gray;
-    color: white;
-   }
 
-
-   .row {
-    padding: 15%;
-   }
-
-   .table-container {
+.table {
     width: 80%;
     margin: auto; 
     padding: 10px;
    }
+
+
+.firstButton{
+    background-color:brown;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    padding: 2%;
+
+}
+
+
+/* || Typography */
+
+
+p,
+h2,
+h3,
+h4,
+th,
+tbody,
+input {
+    font-family:monospace;
+    color: darkslategray;
+}
+

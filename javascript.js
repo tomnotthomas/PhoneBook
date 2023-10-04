@@ -12,7 +12,7 @@ class Contact {
 
 //Create function that is creating table entries
 $(document).ready(function(){
-    $(".tableEntry").on("click", function(event){
+    $(".tableEntryButton").on("click", function(event){
     const name = $("#firstName").val();
     const surname = $("#surname").val();
     const phone = $("#phone").val();
@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 
     //create delete button
-    const deleteButton = $("<button>").addClass("btn firstButton").text("Delete").click(function() {
+    const deleteButton = $("<button>").addClass("secondButton").text("Delete").click(function() {
         createRow.remove();
     })
     const deleteButtonInTable= $("<td>").append(deleteButton);
@@ -53,9 +53,13 @@ $(document).ready(function(){
     createRow.append($("<td>").text(""));
 
 
-    //now I put the created entries into the table
+    //now I put the created entries into the table, display a notification, and reset the contact form
     tableInside.append(createRow);
+    $("#notification").text("Congratulations! You've added a new phone book entry").fadeIn().delay(5000).fadeOut();
+    $("#contactForm")[0].reset();
+    $("#contactForm").hide();
     })
+
 })
 
 //Create search functionality
@@ -70,3 +74,22 @@ $("#searchBar").on("keyup", function() {
     })
 });
 });
+
+
+//Hide form by default
+
+$(document).ready(function()
+{
+  $("#contactForm").hide();  
+})
+
+//Unhide form when add button is clicked
+
+$(document).ready(function()
+{
+    $("#toggleButton").on("click", function()
+    {
+        $("#contactForm").toggle();
+    })
+})
+

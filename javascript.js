@@ -11,7 +11,8 @@ class Contact {
 
 
 //Create function that is creating table entries
-function newContact(event){
+$(document).ready(function(){
+    $(".tableEntry").on("click", function(event){
     const name = $("#firstName").val();
     const surname = $("#surname").val();
     const phone = $("#phone").val();
@@ -54,8 +55,8 @@ function newContact(event){
 
     //now I put the created entries into the table
     tableInside.append(createRow);
-}
-
+    })
+})
 
 //Create search functionality
 
